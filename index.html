@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard v1 - 3D Interactive Portfolio</title>
+    <!-- Icons & Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Style File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Scene 3D Container -->
+    <div class="scene-container">
+        <div class="dashboard-3d-wrapper" id="dashboardWrapper">
+
+            <!-- Sidebar -->
+            <aside>
+                <div class="brand">
+                    <h2>Dashboard v1</h2>
+                    <span>3D Portfolio Project</span>
+                </div>
+                <nav>
+                    <a href="#" class="nav-item active" data-page="overview"><i class="fa-solid fa-house"></i> Overview</a>
+                    <a href="#" class="nav-item" data-page="analytics" id="analyticsNavBtn"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+                    <a href="#" class="nav-item" data-page="settings" id="settingsNavBtn"><i class="fa-solid fa-gear"></i> Settings</a>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <header>
+                    <div>
+                        <h1 id="welcomeTitle">Welcome back!</h1>
+                        <p id="subTitle">Here is what's happening with your projects today.</p>
+                    </div>
+                    <div class="header-actions">
+                        <!-- زر تدوير 360 درجة بأنيميشن ناعمة -->
+                        <button class="action-btn" id="rotate3dBtn" title="Rotate 360°"><i class="fa-solid fa-cube"></i> Rotate 360°</button>
+                        <!-- زر الإعدادات -->
+                        <button class="action-btn" id="openSettingsBtn" title="User Settings"><i class="fa-solid fa-user-gear"></i></button>
+                        <div class="user-profile" id="userProfileBtn">
+                            <div class="avatar" id="userAvatar">U</div>
+                            <span id="userName">User Name</span>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Dynamic View Area -->
+                <div id="pageContent">
+                    <!-- KPI Cards (Overview Page) -->
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <small><i class="fa-solid fa-wallet"></i> Total Revenue</small>
+                            <div class="value" id="kpiRevenue">$24,500</div>
+                        </div>
+                        <div class="kpi-card">
+                            <small><i class="fa-solid fa-user-check"></i> Active Users</small>
+                            <div class="value" id="kpiUsers">1,420</div>
+                        </div>
+                        <div class="kpi-card">
+                            <small><i class="fa-solid fa-bag-shopping"></i> Completed Orders</small>
+                            <div class="value" id="kpiOrders">385</div>
+                        </div>
+                        <div class="kpi-card">
+                            <small><i class="fa-solid fa-chart-pie"></i> Conversion Rate</small>
+                            <div class="value" id="kpiRate">4.8%</div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity Table -->
+                    <div class="table-section" style="margin-top: 25px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3>Recent Transactions</h3>
+                            <button class="action-btn" id="addRowBtn"><i class="fa-solid fa-plus"></i> Add Transaction</button>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Client Name</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <tr>
+                                    <td>#LC-9821</td>
+                                    <td>Amine K.</td>
+                                    <td>$150.00</td>
+                                    <td><span class="status">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#LC-9822</td>
+                                    <td>Sarah M.</td>
+                                    <td>$340.00</td>
+                                    <td><span class="status">Completed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- User Settings Modal -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal-card">
+            <h2><i class="fa-solid fa-user-gear"></i> User Settings</h2>
+            <p>Customize your dashboard preferences</p>
+            <div class="form-group">
+                <label>Display Name:</label>
+                <input type="text" id="inputName" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label>Theme Accent Color:</label>
+                <input type="color" id="inputColor" value="#d4af37">
+            </div>
+            <div class="modal-actions">
+                <button class="btn-cancel" id="closeSettingsBtn">Cancel</button>
+                <button class="btn-save" id="saveSettingsBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
